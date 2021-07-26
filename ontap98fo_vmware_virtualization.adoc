@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: ontap98fo_vmware_virtualization.html 
+keywords: FlexGroup, VMware, vSphere, NFS, 9.8, Virtual Storage Console, SnapCenter, Storage Replication Adapter, vVols 
+summary: このページでは、 ONTAP 9.8 for VMware Virtualization における新たな統合とサポートについて説明します。たとえば、 FlexGroup ボリュームを VMware NFS データストアとしてプロビジョニングし、 ONTAP クラスタ全体の機能を提供する拡張性の高い単一のデータストアでデータストア管理を簡素化します。 
+---
+= VMware 仮想化
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+ONTAP 9.8 での VMware の統合とサポートは、 FlexGroup データストアのサポートなど、多数の新機能によって強化されます。ONTAP 9.8 では、 FlexGroup ボリュームを VMware NFS データストアとしてプロビジョニングできるため、拡張性に優れた単一のデータストアを使用して、 ONTAP クラスタ全体の能力を高め、データストア管理を簡素化できます。これらの新機能の多くは、 VMware vSphere 9.8 リリース用の ONTAP ツールに含まれています。
+
+これは、次のことを意味します。
+
+* パフォーマンスと配置の検証
+* 相互運用性認定
+* VAAI コピーオフロードの機能が強化され、バックグラウンドでの処理が高速化されました
+* Virtual Storage Console のサポート： FlexGroup のプロビジョニング、サイズ変更と削除、個々の VM に対する QoS の設定、 VM のパフォーマンス指標（レイテンシ、 IOPS 、スループット）の表示など
+* NetApp SnapCenter のプライマリストレージのバックアップとリカバリのサポート
+* 最大 64TB の VMFS LUN をサポート。ネットアップのオール SAN アレイで 128TB の LUN / 300TB の FlexVol ボリュームをサポートしているため、 ONTAP Tools for VMware vSphere 9.8 リリースでは、 Virtual Storage Console を使用して最大 64TB の VMFS データストアをプロビジョニングできます。
+* 増加しました https://www.vmware.com/in/products/site-recovery-manager.html["Site Recovery Manager （ SRM ）"^] 拡張性：ONTAP Tools for VMware vSphere 9.8 リリースの Storage Replication Adapter により、データストアおよび保護グループの拡張性が最大 512 まで向上します。
+* REST API を使用した VMware vSphere VVol のファイル指標。ONTAP 9.8 で REST API の vVol ファイル指標がサポートされるようになりました。これにより、 Virtual Storage Console で vVol の ONTAP ストレージのパフォーマンス指標をダッシュボードやレポートに表示できます。
+* https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-5651B2B8-6410-48AE-8882-6D51C85AC201.html["Storage Replication Adapter （ SRA ）"^] SnapMirror Synchronous のサポート
+* のサポート https://tanzu.vmware.com/tanzu["VMware Tanzu の"^] ストレージ
+* VVol のサポートが強化され、 SAN VVol のリバランシングコマンドやストレージ機能プロファイルの機能拡張などが追加されました。最新の VMware 仮想化サポートの詳細については、次のリソースを参照してください。
+* https://soundcloud.com/techontap_podcast/episode-263-virtualization-in-ontap-fall-2020-update["Tech OnTap ポッドキャスト・エピソード 263 ： ONTAP における仮想化– 2020 年秋"^]
+* https://www.netapp.com/us/media/tr-4597.pdf["TR-4597 ：『 VMware vSphere with ONTAP 』"^]
+

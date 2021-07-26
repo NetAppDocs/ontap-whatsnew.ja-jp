@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: ontap98fo_technical_resources.html 
+keywords:  
+summary: このページには、 ONTAP 9.8 に関連するさまざまな技術リソースへのリンクが記載されています。 
+---
+= テクニカルリソース
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+このセクションでは、本ドキュメントで紹介している機能の詳細を説明する、技術リソースについて説明します。
+
+
+
+== テクニカルレポート
+
+* TR-4067 ：『 NetApp ONTAP 8.1 Cluster-Mode 向け NFSv3 / v4 実装ガイド』
++
+https://www.netapp.com/us/media/tr-4067.pdf["https://www.netapp.com/us/media/tr-4067.pdf"^]
+
+* TR-4375 ：『 MetroCluster FC for ONTAP 9.7 』
++
+https://www.netapp.com/us/media/tr-4375.pdf["https://www.netapp.com/us/media/tr-4375.pdf"^]
+
+* TR-4569 ：『 ONTAP 9 セキュリティ設定ガイド』
++
+https://www.netapp.com/pdf.html?item=/media/10674-tr4569pdf.pdf["https://www.netapp.com/pdf.html?item=/media/10674-tr4569pdf.pdf"^]
+
+* TR-4571 ：『 NetApp FlexGroup Volumes Best Practices 』
++
+https://www.netapp.com/us/media/tr-4571.pdf["https://www.netapp.com/us/media/tr-4571.pdf"^]
+
+* TR-4597 ：『 VMware vSphere with ONTAP 』
++
+https://www.netapp.com/us/media/tr-4597.pdf["https://www.netapp.com/us/media/tr-4597.pdf"^]
+
+* TR-4598 ：『 FabricPool Best Practices 』
++
+https://www.netapp.com/us/media/tr-4598.pdf["https://www.netapp.com/us/media/tr-4598.pdf"^]
+
+* TR-4678 ：『 Data Protection and Backup - FlexGroup Volumes 』
++
+https://www.netapp.com/us/media/tr-4678.pdf["https://www.netapp.com/us/media/tr-4678.pdf"^]
+
+* TR-4689 ：『 MetroCluster IP 解決策 Architecture and Design 』
++
+https://www.netapp.com/us/media/tr-4689.pdf["https://www.netapp.com/us/media/tr-4689.pdf"^]
+
+* TR-4705 ：ネットアップの MetroCluster 解決策アーキテクチャと設計
++
+https://www.netapp.com/pdf.html?item=/media/13480-tr4705pdf.pdf["https://www.netapp.com/pdf.html?item=/media/13480-tr4705pdf.pdf"^]
+
+* TR-4743 ：『 FlexCache in ONTAP 』
++
+https://www.netapp.com/pdf.html?item=/media/7336-tr4743pdf.pdf["https://www.netapp.com/pdf.html?item=/media/7336-tr4743pdf.pdf"^]
+
+
+
+
+
+== ポッドキャスト
+
+* Tech OnTap ポッドキャスト・エピソード 263 ： ONTAP における仮想化– 2020 年秋
++
+https://soundcloud.com/techontap_podcast/episode-263-virtualization-in-ontap-fall-2020-update["https://soundcloud.com/techontap_podcast/episode-263-virtualization-in-ontap-fall-2020-update"^]
+
+* Tech OnTap ポッドキャストのエピソード 264 ： NetApp ONTAP SnapDiff
++
+https://soundcloud.com/techontap_podcast/episode-264-netapp-ontap-snapdiff["https://soundcloud.com/techontap_podcast/episode-264-netapp-ontap-snapdiff"^]
+
+* Tech OnTap ポッドキャストエピソード 265 ： ProLion を搭載した NetApp SnapMirror クラウド
++
+https://soundcloud.com/techontap_podcast/episode-265-netapp-snapmirror-cloud-featuring-prolion["https://soundcloud.com/techontap_podcast/episode-265-netapp-snapmirror-cloud-featuring-prolion"^]
+
+* Tech OnTap ポッドキャストエピソード 266 ：『 NetApp ONTAP System Manager 9.8 』
++
+https://soundcloud.com/techontap_podcast/episode-266-netapp-system-manager-98["https://soundcloud.com/techontap_podcast/episode-266-netapp-system-manager-98"^]
+
+* Tech OnTap ポッドキャスト・エピソード 267 ： SnapMirror によるビジネス継続性
++
+https://soundcloud.com/techontap_podcast/episode-267-snapmirror-business-continuity-sm-bc-for-ontap-98["https://soundcloud.com/techontap_podcast/episode-267-snapmirror-business-continuity-sm-bc-for-ontap-98"^]
+
+

@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: ontap991fo_other_major_additions.html 
+keywords: FlexGroup, S3, NFSv4.2, MAC, 
+summary: System Manager の機能拡張、 SAN の機能拡張、データ保護の機能拡張に加えて、 ONTAP 9.9..1 にほかにもいくつかの大きな機能が追加されています。 
+---
+= その他の主要な追加機能
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+System Manager の機能拡張、 SAN の機能拡張、データ保護の機能拡張に加えて、 ONTAP 9.9..1 にほかにもいくつかの大きな機能が追加されています。
+
+
+
+== 論理スペースの計算 / 適用– FlexGroup ボリューム
+
+FlexVol 9.4 では、 ONTAP ボリュームの論理スペースが計算されるようになりました。ストレージ管理者は、このツールを使用してストレージ効率化による削減効果をマスキングし、エンドユーザが指定のストレージクォータを過剰に割り当てないようにすることができます。
+
+たとえば、 6TB のデータを 10TB ボリュームに書き込み、ストレージ効率が 2TB を超える場合、論理スペースを計算することで、ユーザが 6TB または 4TB を確認できるかどうかを制御できます。
+
+image:ontap991fo_image17.png["エラー：グラフィックイメージがありません"]
+
+ONTAP 9.5 では、この機能が強化され、 FlexVol のクォータ適用のサポートが追加されました。論理スペースのしきい値設定に従って新しい書き込みを禁止することで、ストレージ管理者の制御性が向上しています。ただし、 FlexGroup ボリュームでは、 ONTAP 9.9..1 までこの機能が使用できなくなりました。
+
+
+
+== ONTAP S3 ユーザ定義のメタデータタグ
+
+ONTAP 9.8 では、オブジェクトストレージの基本機能に関して S3 プロトコルがサポートされるようになりました。
+
+ONTAP 9.8 での S3 のサポートには、次のものが含まれています。
+
+* 基本的な PUT / GET オブジェクトアクセス（同じバケットから S3 と NAS の両方へのアクセスは含まれない）
++
+** オブジェクトのタグ付けや ILM はサポートされず、機能が豊富でグローバルに分散された S3 ではを使用します https://www.netapp.com/data-storage/storagegrid/["NetApp StorageGRID"^]。
+
+
+* TLS 1.2 暗号化
+* マルチパートアップロード
+* 調整可能なポート
+* ボリュームごとに複数のバケット
+* バケットのアクセスポリシー
+* NetApp FabricPool ターゲットとして S3 を使用する
+
+
+ONTAP 9.9.1 以降では、 ObjectCreate および MultiPartUpload 呼び出しを使用する場合に、オブジェクトのメタデータタギングがサポートされます。HEAD または GET がオブジェクトに対して実行されると、ユーザ定義のメタデータとタグ数が応答で HTTP ヘッダーの一部として返されます。これらのタグを使用すると、 ONTAP バケット内のオブジェクトを分類してより堅牢なデータ管理を実現でき、メタデータとタグの作成が必要なアプリケーションにも対応できます。
+
+詳細については、次のリソースを参照してください。
+
+* https://soundcloud.com/techontap_podcast/episode-268-netapp-fabricpool-and-s3-in-ontap-98["Tech OnTap ポッドキャスト：エピソード 268 - ONTAP 9.8 におけるネットアップの FabricPool と S3"^]
+* https://www.netapp.com/us/media/tr-4814.pdf["ONTAP S3"^]
+
+
+
+
+== NFSv4.2 のセキュリティラベル
+
+ONTAP 9.9.1 では、ラベル付き NFS と呼ばれる NFSv4.2 機能がサポートされるようになりました。これは、 SELinux ラベルと Mandatory Access Control （ MAC ；強制アクセス制御）を使用して、ファイルやフォルダへのきめ細かいアクセスを管理する方法です。これらの MAC ラベルはファイルおよびフォルダとともに格納され、 UNIX 権限および NFSv4.x ACL と連動します。ラベル付き NFS のサポートにより、 ONTAP は、 NFS クライアントの SELinux ラベル設定を認識し、理解できるようになりました。ラベル付き NFS については、を参照してください https://tools.ietf.org/html/rfc7204["RFC-7204"^]。
+
+ユースケースには次のものがあります。
+
+* 仮想マシンイメージの MAC ラベル
+* 公的部門のデータセキュリティ分類（シークレット、トップシークレットなど）
+* セキュリティコンプライアンス
+* ディスクレス Linux
+
+
+このリリースでは、 ONTAP は次の強制モードをサポートします。
+
+* https://tools.ietf.org/html/rfc7204["制限付きサーバーモード"^]。ONTAP ではラベルを強制できませんが、ラベルを保存して送信することはできます。
++
+** MAC ラベルを変更する機能も、クライアント側で適用されます。
+
+
+* https://tools.ietf.org/html/rfc7204["ゲストモード"^]。クライアントのラベルが NFS 対応（ v4.1 以下）でない場合、 MAC ラベルは送信されません。
+
+
+ONTAP は現在サポートしていません https://tools.ietf.org/html/rfc7204["Full Mode （フルモード）"^] （ MAC ラベルの保存と適用）。

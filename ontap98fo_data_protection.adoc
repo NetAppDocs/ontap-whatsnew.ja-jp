@@ -1,0 +1,134 @@
+---
+sidebar: sidebar 
+permalink: ontap98fo_data_protection.html 
+keywords: TR-4872, Data Protection, Security, Secure Purge, IPSec, NetApp Volume Encryption, NVE, SnapMirror Cloud, SnapMirror Business Continuity (SM-BC) 
+summary: このページでは、 ONTAP 9.8 の最新のデータ保護機能について説明します。これには、オフサイトでのデータ複製という概念のほか、転送中および保存中のデータの保護に関する概念も含まれます。 
+---
+= データ保護
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+このドキュメントでは、データ保護という概念に加え、データのオフサイトレプリケーションと、転送中および保存中のデータの保護の両方を指します。このセクションでは、 ONTAP 9.8 における最新のデータ保護機能について説明します。
+
+
+
+== セキュリティ
+
+ONTAP の各リリースは、新しいセキュリティ機能と拡張機能に基づいて構築されており、 ONTAP 9.8 とはまったく異なります。ONTAP のセキュリティ機能の詳細については、を参照してください https://www.netapp.com/pdf.html?item=/media/10674-tr4569pdf.pdf["TR-4569 ：『 ONTAP 9 セキュリティ設定ガイド』"^]。
+
+
+
+=== セキュアな削除
+
+機密データが分類されている環境では、ファイルにアクセスできないユーザがボリュームに誤って書き込まれると、データオーバーフローと呼ばれるものが作成されます。これにより、ボリューム全体を削除し、オーバーフローをクリーンアップするためにディスクをスクラビングするシナリオが作成されます。
+
+NetApp Volume Encryption and Secure Purge を使用すると、ファイルに関連付けられたセキュリティ暗号化キーを削除することで、個々のファイルを暗号化によってシュレッドすることができるため、災害による被害を軽減できます。このキーが削除されると、そのデータはディスクからリカバリできなくなります。このプロセスは、 NIST SP 800-88 ガイドラインを使用してメディアの衛生管理を行うデータリカバリ企業によって外部で検証されています。
+
+ただし、セキュアパージでさえその制限があります。たとえば、ファイルをパージする必要がある場合は、ボリュームの移動を実行する必要があります。これにより、システム内に利用可能なスペースが必要になります。SnapMirror がインストールされている場合は、セキュアなパージ処理のあとにベースラインを再設定する必要があります。
+
+ONTAP 9.8 でセキュアな削除を実行すると、次のような制限がなくなります。
+
+* 暗号化ファイル用のシンプルなインプレース手順を提供します。
+* 既存の SnapMirror ミラーを維持し、再ベースラインを行う必要はありません。
+
+
+
+
+=== IPSec
+
+IPSec は、アプリケーションに依存しない暗号化をネットワーク上で実行するための標準メカニズムです。IPSec では、使用中のプロトコルに関係なく、ネットワークトラフィックを暗号化できます。これにより、 Kerberos 暗号化を設定して使用することが困難な NFS をはじめ、ネットワーク上で iSCSI トラフィックを暗号化する唯一の方法を提供することで、シンプル化を実現できます。
+
+ONTAP 9.8 で IPSec のサポートが追加されました。IPSec の ONTAP 実装では、接続クライアントで事前共有秘密鍵または鍵（ PSK ）が使用されます。これらのクライアントには、 PSK を使用した IKEv2 を使用する最新の OS が含まれています。Windows OS では、 PSK を使用した IKEv2 はサポートされていないことに注意してください。
+
+
+
+=== Trusted Platform Module の略
+
+ONTAP 9.8 の新しい Trusted Platform Module （ TPM ）を使用すると、オンボードキーマネージャ（ OKM ）の暗号化キーはブートデバイスに保存されなくなりますが、システム用の物理 TPM に保存されるため、セキュリティと保護が強化されます。TPM への移行は無停止で実行されます。
+
+
+
+=== NetApp Volume Encryption の略
+
+NetApp Volume Encryption （ NVE ）は、あらゆるドライブタイプのあらゆるデータボリュームを暗号化できるソフトウェア解決策です。有効にすると、ボリュームごとに一意のキーが設定されます。この機能は ONTAP 9.1 以降で使用できます。
+
+ONTAP 9.8 では、 NVE がノードのルートボリュームにサポートされます。ルートボリュームには、ログファイル、クラスタ構成のバックアップ、コアファイル、および FIPS 140-2 準拠の暗号化で保護する必要があるその他のシステム関連情報が含まれています。
+
+
+
+== SnapMirror クラウド
+
+SnapMirror は、 ONTAP において業界をリードするレプリケーションテクノロジです。ストレージ管理者は、 WAN 接続経由でデータセットの正確なコピーを作成し、変更されたブロックのみをレプリケートしてネットワーク利用率を削減することができます。
+
+ONTAP の過去のいくつかのリリースでは、 SnapMirror のサポートが拡張され、などの ONTAP 以外のシステムも対象になりました https://blog.netapp.com/introducing-snapmirror-for-solidfire-element-os-enabling-data-replication-across-the-data-fabric/["SolidFire Element OS の略"^]。ONTAP 9.8 で、 SnapMirror を利用してクラウドまたはオンプレミスの S3 オブジェクトバケットにレプリケートできるようになりました。
+
+image:ontap98fo_image23.png["エラー：グラフィックイメージがありません"]
+
+新しいを活用することで https://blog.netapp.com/new-backup-architecture-snapdiff-v3["SnapDiff 3.0 エンジン"^]を使用すると、 ONTAP NAS ボリュームからオブジェクトストレージバケットにデータをセキュアかつ効率的にレプリケートできます。これにより、 ONTAP データファブリック全体でハイブリッドクラウドを移動できます。
+
+* Snapshot をクラウドオブジェクトストレージにスペース効率に優れた方法でバックアップすることで、ストレージ効率を維持できます。
+* フルボリュームおよび単一ファイルのリストアをサポートします
+
+
+ONTAP 9.8 では、 SnapMirror クラウドのオーケストレーションに、次の 2 つの方法のいずれかが必要です。System Manager ではサポートされておらず、 API や CLI から直接行うこともできません。
+
+* ライセンス供与された ISV パートナーアプリケーションを使用して、バックアップとリストアのワークフローを作成および管理します。SnapMirror Cloud ライセンスが必要です。
+* Cloud Backup Service を使用。SnapMirror クラウドライセンスは必要ありません。
+
+
+SnapDiff と SnapMirror クラウドの詳細については、次のリソースを参照してください。
+
+* https://soundcloud.com/techontap_podcast/episode-264-netapp-ontap-snapdiff["Tech OnTap ポッドキャストのエピソード 264 ： NetApp ONTAP SnapDiff"^]
+* https://soundcloud.com/techontap_podcast/episode-265-netapp-snapmirror-cloud-featuring-prolion["Tech OnTap ポッドキャストエピソード 265 ： ProLion を搭載した NetApp SnapMirror クラウド"^]
+* https://blog.netapp.com/new-backup-architecture-snapdiff-v3["ネットアップのブログ：「 A new backup architecture with SnapDiff / SnapMirror Cloud-v3"^]
+
+
+
+
+== SnapMirror のビジネス継続性（ SM-BC ）
+
+https://blog.netapp.com/snapmirror-synchronous-ontap-9-6/["SnapMirror Synchronous"^] （ SM-S ）は ONTAP 9.5 で導入され、ボリューム単位およびストレージ効率に優れた同期データレプリケーションを提供します。このレプリケーションは、企業がバックアップ、ディザスタリカバリ、データ移動に依存するようになります。SM-S FlexVol は、データセンターまたはメトロ地域にある完全冗長構成の ONTAP ストレージシステム間で、データをデータセンターまたはメトロ地域間でレプリケートし、応答時間（ RTT ）を 10 ミリ秒未満に抑えて、ゼロのリカバリポイント目標とほぼゼロのリカバリ時間目標を達成します。
+
+ONTAP 9.8 では 'SAN 環境における SnapMirror Synchronous の概念が採用されており 'System Manager を使用してコンシステンシ・グループのアプリケーションのフェイルオーバー機能が自動化されています ONTAP メディエーターを使用して ' 障害発生時のビジネス継続性を管理および維持できますこの関係は同期的であるため、フェールオーバー時にアプリケーションが失敗することはありません。SnapMirror Business Continuity の初回リリースでは、 SAN （ iSCSI および FCP ）ワークロードのみがサポートされます。
+
+SnapMirror のビジネス継続性機能の詳細については、を参照してください https://soundcloud.com/techontap_podcast/episode-267-snapmirror-business-continuity-sm-bc-for-ontap-98["Tech OnTap ポッドキャスト・エピソード 267 ： SnapMirror によるビジネス継続性"^]。
+
+
+
+== MetroCluster
+
+NetApp MetroCluster （ MC ）ソフトウェアは、アレイベースのクラスタリングと同期レプリケーションを組み合わせた解決策であり、最小限のコストで継続的可用性を実現し、データ損失をゼロに抑えます。アレイベースのクラスタの管理は、ホストベースのクラスタリングに通常見られる依存関係や複雑さが解消されているため、よりシンプルです。
+
+image:ontap98fo_image24.png["エラー：グラフィックイメージがありません"]
+
+MetroCluster は、ミッションクリティカルなデータをトランザクション単位で瞬時に複製し、アプリケーションやデータへの中断のないアクセスを実現します。MetroCluster は、標準的なデータレプリケーションソリューションとは異なり、ホスト環境とシームレスに連携して継続的なデータ可用性を実現します。複雑なフェイルオーバースクリプトを作成して管理する必要はありません。
+
+MetroCluster では、次のタスクを実行できます。
+
+* 透過的なスイッチオーバーにより、ハードウェア、ネットワーク、またはサイトの障害から保護します
+* 計画的停止と計画外停止、および変更管理を排除します
+* 稼働を中断せずにハードウェアとソフトウェアをアップグレードできます
+* 複雑なスクリプト作成、アプリケーション、オペレーティングシステムの依存関係を必要とせずに導入できます
+* VMware 、 Microsoft 、 Oracle 、 SAP 、その他の重要なアプリケーションの継続的可用性を実現
+
+
+ONTAP 9.8 では、 MetroCluster の次の機能が拡張されています。
+
+* * 新しいエントリレベルおよびミッドレンジプラットフォームのサポート。 * NetApp AFF A250 、 FAS500f 、 FAS8300 、 FAS 8700 ハイブリッド、 A400 。A220 、 FAS2750 、 FAS500f の新規インストールの場合、 VLAN を 100 より大きく 4096 より小さい値に指定できるようになりました。
+* * MC-FC から MC-IP への無停止での移行。 * 4 ノードクラスタのみ。 2 ノード MCC にはダウンタイムが必要です。今後の機器更改で MC IP に簡単に移行できます。
+* * ミラーされていないアグリゲートが MC IP でサポートされるようになりました。 * アプリケーション単位で必要なアグリゲートだけをフェイルオーバーサイトにレプリケートします。
+* Cisco 9336C-FX2 スイッチ、および A400 、 FAS 8300 、 FAS 8700 を BES-53248 スイッチでサポートし、 100G のポートライセンスが追加されました。
+
+
+MetroCluster の詳細については、次のリソースを参照してください。
+
+* https://www.netapp.com/us/media/tr-4375.pdf["TR-4375 ：『 MetroCluster FC for ONTAP 9.7 』"^]
+* https://www.netapp.com/us/media/tr-4689.pdf["TR-4689 ：『 MetroCluster IP 解決策 Architecture and Design 』"^]
+* https://www.netapp.com/pdf.html?item=/media/13480-tr4705pdf.pdf["TR-4705 ：ネットアップの MetroCluster 解決策アーキテクチャと設計"^]
+
+
+link:ontap98fo_vmware_virtualization.html["次のステップ： VMware の仮想化"]
