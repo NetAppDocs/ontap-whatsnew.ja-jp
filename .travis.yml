@@ -15,6 +15,9 @@ script:
 - mkdir -p /tmp/output && bundle exec jekyll build --trace --destination /tmp/output
 - touch /tmp/output/.nojekyll
 - rm -rf /tmp/output/pdfs/fullsite-sidebar/*
+- ls -al /tmp/output/pdfs/fullsite-sidebar/
+- ruby pdf-download.rb
+- ls -al /tmp/output/pdfs/fullsite-sidebar/
 deploy:	
   edge: true
   provider: pages	
