@@ -68,7 +68,6 @@
   <block id="f1ae24804ec4b6b17a54394f58112978" category="paragraph">IPSec は、アプリケーションに依存しない暗号化をネットワーク上で実行するための標準メカニズムです。IPSec では、使用中のプロトコルに関係なく、ネットワークトラフィックを暗号化できます。これにより、 Kerberos 暗号化を設定して使用することが困難な NFS をはじめ、ネットワーク上で iSCSI トラフィックを暗号化する唯一の方法を提供することで、シンプル化を実現できます。</block>
   <block id="41c2ee2e9077f794590a4aad78346465" category="paragraph">ONTAP 9.8 で IPSec のサポートが追加されました。IPSec の ONTAP 実装では、接続クライアントで事前共有秘密鍵または鍵（ PSK ）が使用されます。これらのクライアントには、 PSK を使用した IKEv2 を使用する最新の OS が含まれています。Windows OS では、 PSK を使用した IKEv2 はサポートされていないことに注意してください。</block>
   <block id="b3573b14a0c32dbb523ce510bf7f69e4" category="section-title">Trusted Platform Module の略</block>
-  <block id="13d770b48adc9f9695c92a47ba602630" category="paragraph">ONTAP 9.8 の新しい Trusted Platform Module （ TPM ）を使用すると、オンボードキーマネージャ（ OKM ）の暗号化キーはブートデバイスに保存されなくなりますが、システム用の物理 TPM に保存されるため、セキュリティと保護が強化されます。TPM への移行は無停止で実行されます。</block>
   <block id="c4b8c29f448328e82ce27062b5fd9c28" category="section-title">NetApp Volume Encryption の略</block>
   <block id="7d89fb26b027943d7a25ccdf8e8d2344" category="paragraph">NetApp Volume Encryption （ NVE ）は、あらゆるドライブタイプのあらゆるデータボリュームを暗号化できるソフトウェア解決策です。有効にすると、ボリュームごとに一意のキーが設定されます。この機能は ONTAP 9.1 以降で使用できます。</block>
   <block id="66c2012d589bdbfcf7800051ae23f432" category="paragraph">ONTAP 9.8 では、 NVE がノードのルートボリュームにサポートされます。ルートボリュームには、ログファイル、クラスタ構成のバックアップ、コアファイル、および FIPS 140-2 準拠の暗号化で保護する必要があるその他のシステム関連情報が含まれています。</block>
@@ -600,4 +599,5 @@
   <block id="894993270da66c4f1f40a52bc9a89e53" category="paragraph"><block ref="894993270da66c4f1f40a52bc9a89e53" category="inline-link-macro-rx"></block></block>
   <block id="7eb11865313a79b30293e6f823bc7459" category="sidebar">NetApp ONTAP 9.9.1 機能の概要</block>
   <block id="bebab3b123211d2c00c685855ec9b053" category="sidebar">NetApp ONTAP 9.8 の機能の概要</block>
+  <block id="a88154fe57b35fe434a4a8455227496e" category="paragraph">ONTAP 9.8 の新しい Trusted Platform Module (TPM) により、オンボードキーマネージャ (OKM ) の暗号化キーは物理 TPM によってシールされ、セキュリティと保護が強化されています。TPM への移行は無停止で実行されます。</block>
 </blocks>
