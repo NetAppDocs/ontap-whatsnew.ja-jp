@@ -1,0 +1,33 @@
+---
+sidebar:
+  entries:
+  - title: NetApp ONTAP 9.9.1 機能の概要
+    url: "/index.html"
+    type: solution
+    entries:
+    - title: System Manager の機能拡張
+      url: "/ontap991fo_system_manager_enhancements.html"
+    - title: SAN の機能拡張
+      url: "/ontap991fo_san_enhancements.html"
+    - title: データ保護の機能拡張
+      url: "/ontap991fo_data_protection_enhancements.html"
+    - title: その他の主要な追加機能
+      url: "/ontap991fo_other_major_additions.html"
+    - title: テクニカルリソース
+      url: "/ontap991fo_technical_resources.html"
+  - title: NetApp ONTAP 9.8 の機能の概要
+    url: "/ontap98fo_netapp_ontap.html"
+    type: solution
+    entries:
+    - title: 簡易性の強化
+      url: "/ontap98fo_simplicity_enhancements.html"
+    - title: データプロトコル
+      url: "/ontap98fo_data_protocols.html"
+    - title: ストレージの効率化
+      url: "/ontap98fo_storage_efficiencies.html"
+    - title: データ保護
+      url: "/ontap98fo_data_protection.html"
+    - title: VMware 仮想化
+      url: "/ontap98fo_vmware_virtualization.html"
+    - title: テクニカルリソース
+      url: "/ontap98fo_technical_resources.html"
