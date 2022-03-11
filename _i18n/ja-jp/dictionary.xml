@@ -400,7 +400,6 @@
   <block id="2abfff2974f589f7a217325f304e0ec5" category="cell">ONTAP 9.8</block>
   <block id="547cbd3109db3ef525c301563f0d65f1" category="cell">ONTAP 9.n+1 、 ONTAP 9.n+2</block>
   <block id="bf901878215dddabdc936ea948793ecb" category="paragraph">このシンプルなアップグレードプロセスにより、ヘッドのアップグレードも合理化されます。新しいハードウェアノードの出荷時に、最新の ONTAP リリースがインストールされています。以前は、既存のクラスタで古い ONTAP リリースを実行していた場合は、既存のノードを新しいノードと同じバージョンの ONTAP にアップグレードするか、新しいノードを古い ONTAP リリースにダウングレードする必要がありました。さらに複雑な作業として、新しいハードウェアをダウングレードできなかった場合、既存のクラスタをアップグレードするためにメンテナンス期間を余儀なくされました。</block>
-  <block id="dcaf81f56b0daa7582eca70fdde4e77f" category="paragraph">ONTAP 9.8 の 2 年間の改訂期間を使用すると、無停止のアグリゲート再配置アップグレード処理を使用して、該当する範囲内の ONTAP バージョンを持つクラスタに新しいノードを追加し、古いノードをバックグラウンドで新しい ONTAP リリースに自動的にアップグレードできます。</block>
   <block id="d62296e71d81556e35f498bde3d79287" category="paragraph"><block ref="d62296e71d81556e35f498bde3d79287" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e3eefd878fd09006803de4818d676916" category="paragraph">また、クラスタのアップグレードもこのプロセスの対象となり、 HA ペア全体をクラスタからスワップアウトできます。ONTAP 9.8 の 2 年間の改訂期間と無停止でのボリューム移動により、これが可能になりました。</block>
   <block id="98d0faccb32c3ee69ee9e16707900653" category="paragraph">基本的な手順は次のとおりです。</block>
@@ -600,4 +599,6 @@
   <block id="7eb11865313a79b30293e6f823bc7459" category="sidebar">NetApp ONTAP 9.9.1 機能の概要</block>
   <block id="bebab3b123211d2c00c685855ec9b053" category="sidebar">NetApp ONTAP 9.8 の機能の概要</block>
   <block id="2ca95da666ae6ef767cab8e7cc5bdb7b" category="paragraph">ONTAP 9.8 の新しい Trusted Platform Module (TPM) により、オンボードキーマネージャ (OKM ： Onboard Key Manager) の暗号化キーは物理 TPM によってシールされ、セキュリティと保護が強化されています。TPM への移行は無停止で実行されます。</block>
+  <block id="2f8e938c8b82fff608b2a7cc62ef5bbc" category="paragraph">ONTAP 9.8 の 2 年バージョンが混在したウィンドウでは、新しいバージョンの ONTAP を実行している新しいノードをクラスタに追加し、 9.8 を実行しているノードからより新しいバージョンの ONTAP にボリュームを移動してコントローラを更新できるようになりました。また、無停止でのアグリゲート再配置アップグレード処理により、 ONTAP 9.8 を実行する必要があるシステム（ 8000 シリーズシステムなど）を、 ONTAP の新しいリリースで導入された新しいモデルにコントローラをアップグレードできます。</block>
+  <block id="66c739b0fe981bce9986a4fc69525ce7" category="paragraph">ONTAP クラスタに異なるバージョンが混在する状態を推奨します。</block>
 </blocks>
