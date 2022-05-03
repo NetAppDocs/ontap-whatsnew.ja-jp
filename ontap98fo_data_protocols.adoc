@@ -6,6 +6,7 @@ summary: このページでは、クライアントおよびエンドユーザ�
 ---
 = データプロトコル
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: ONTAP 9.9.1 では、 SAN 関連の重要な拡張機能がいくつか
 ---
 = SAN の機能拡張
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

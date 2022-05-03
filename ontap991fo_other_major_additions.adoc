@@ -6,6 +6,7 @@ summary: System Manager の機能拡張、 SAN の機能拡張、データ保護
 ---
 = その他の主要な追加機能
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

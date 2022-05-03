@@ -6,6 +6,7 @@ summary: ONTAP 9.9.9..1 では、お客様からのフィードバックを収�
 ---
 = System Manager の機能拡張
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

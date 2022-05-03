@@ -6,6 +6,7 @@ summary: このページでは、 ONTAP 9.8 for VMware Virtualization におけ�
 ---
 = VMware 仮想化
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

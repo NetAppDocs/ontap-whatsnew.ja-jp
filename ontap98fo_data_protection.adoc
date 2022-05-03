@@ -6,6 +6,7 @@ summary: このページでは、 ONTAP 9.8 の最新のデータ保護機能に
 ---
 = データ保護
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

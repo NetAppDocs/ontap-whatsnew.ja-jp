@@ -6,6 +6,7 @@ summary: このページでは、 ONTAP 9.8 の最新機能の概要と詳細情
 ---
 = TR-4872 ：『 NetApp ONTAP 9.8 Feature Overview 』
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -30,7 +31,7 @@ NetApp ONTAP では、次の機能をすべて同じプラットフォームで�
 
 このリストは包括的なものではありません。 ONTAP のすべての機能が含まれている場合、このドキュメントは数百ページに及ぶことになります。
 
-NetApp ONTAP の詳細については、を参照してください https://www.netapp.com/pdf.html?item=/media/7413-ds-3231.pdf["ONTAP 9 データ管理ソフトウェアのデータシート"^] および。
+NetApp ONTAP の詳細については、を参照してください https://www.netapp.com/pdf.html?item=/media/7413-ds-3231.pdf["ONTAP 9 データ管理ソフトウェアのデータシート"^] および https://docs.netapp.com/ontap-9/index.jsp["製品ドキュメント"^]。
 
 これを確認してください link:https://tv.netapp.com/detail/video/6211778986001["ビデオ"] NetApp Insight 2020 より、 NetApp ONTAP の注目すべき進歩についての詳細なツアーが含まれます。
 

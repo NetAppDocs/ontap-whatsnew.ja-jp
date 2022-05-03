@@ -6,6 +6,7 @@ summary: このページには、 ONTAP 9.8 に関連するさまざまな技術
 ---
 = テクニカルリソース
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
