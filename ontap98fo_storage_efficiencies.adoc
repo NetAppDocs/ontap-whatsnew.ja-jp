@@ -43,7 +43,7 @@ image:ontap98fo_image22.png["エラー：グラフィックイメージがあり
 
 クラウドに階層化されたファイルにクライアントがアクセスすると、要求されたブロックのみ（ファイル全体ではなく）にアクセスできるようにパフォーマンス階層に戻されます。
 
-FabricPool の詳細については、を参照してください https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["TR-4598 ：『 FabricPool Best Practices 』"] および https://soundcloud.com/techontap_podcast/episode-268-netapp-fabricpool-and-s3-in-ontap-98["TR-4598 ：『 FabricPool Best Practices and Tech OnTap Podcast Episode 268 ： FabricPool 9.8 における NetApp ONTAP and S3 』"^]。
+FabricPool の詳細については、を参照してください https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["TR-4598 ：『 FabricPool Best Practices 』"] および https://soundcloud.com/techontap_podcast/episode-268-netapp-fabricpool-and-s3-in-ontap-98["TR-4598 ：『 FabricPool Best Practices and Tech OnTap Podcast Episode 268 ： ONTAP 9.8 における NetApp FabricPoolおよびS3 』"^]。
 
 ONTAP 9.8 では、次の FabricPool 機能がサポートされます。
 

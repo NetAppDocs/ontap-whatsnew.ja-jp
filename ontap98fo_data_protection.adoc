@@ -128,7 +128,7 @@ ONTAP 9.8 では、 MetroCluster の次の機能が拡張されています。
 MetroCluster の詳細については、次のリソースを参照してください。
 
 * https://www.netapp.com/us/media/tr-4375.pdf["TR-4375 ：『 MetroCluster FC for ONTAP 9.7 』"^]
-* https://www.netapp.com/us/media/tr-4689.pdf["TR-4689 ：『 MetroCluster IP 解決策 Architecture and Design 』"^]
+* https://www.netapp.com/us/media/tr-4689.pdf["TR-4689 ：『 MetroCluster IP Solution Architecture and Design  』"^]
 * https://www.netapp.com/pdf.html?item=/media/13480-tr4705pdf.pdf["TR-4705 ：ネットアップの MetroCluster 解決策アーキテクチャと設計"^]
 
 

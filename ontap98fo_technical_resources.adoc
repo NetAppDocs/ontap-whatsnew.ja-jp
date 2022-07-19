@@ -47,7 +47,7 @@ https://www.netapp.com/us/media/tr-4598.pdf["https://www.netapp.com/us/media/tr-
 +
 https://www.netapp.com/us/media/tr-4678.pdf["https://www.netapp.com/us/media/tr-4678.pdf"^]
 
-* TR-4689 ：『 MetroCluster IP 解決策 Architecture and Design 』
+* TR-4689 ：『 MetroCluster IP Solution Architecture and Design  』
 +
 https://www.netapp.com/us/media/tr-4689.pdf["https://www.netapp.com/us/media/tr-4689.pdf"^]
 
@@ -77,7 +77,7 @@ https://soundcloud.com/techontap_podcast/episode-264-netapp-ontap-snapdiff["http
 +
 https://soundcloud.com/techontap_podcast/episode-265-netapp-snapmirror-cloud-featuring-prolion["https://soundcloud.com/techontap_podcast/episode-265-netapp-snapmirror-cloud-featuring-prolion"^]
 
-* Tech OnTap ポッドキャストエピソード 266 ：『 NetApp ONTAP System Manager 9.8 』
+* Tech OnTap ポッドキャストエピソード 266 ： 『NetApp ONTAP System Manager 9.8』
 +
 https://soundcloud.com/techontap_podcast/episode-266-netapp-system-manager-98["https://soundcloud.com/techontap_podcast/episode-266-netapp-system-manager-98"^]
 

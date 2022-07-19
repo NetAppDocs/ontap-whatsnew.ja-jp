@@ -85,7 +85,7 @@ image:ontap98fo_image7.png["エラー：グラフィックイメージがあり�
 
 === File System Analytics の略
 
-ファイル数の多い環境では ' フォルダの容量 ' データの経過時間 ' ファイル数に関する情報を検索するには ' 通常 'ls'`u`'find 'tat' など 'NAS プロトコルでシリアル・オペレーションを実行する時間のかかるコマンドまたはスクリプトが必要です
+ファイル数の多い環境でフォルダの容量、データの経過時間、およびファイル数に関する情報を探しようとすると、通常、時間がかかるコマンドやスクリプトを使用して、などのNASプロトコルでシリアル処理を実行する必要があります `ls`、 `du`、 `find`および `stat`。
 
 ONTAP System Manager 9.8 を使用すると、管理者は各ボリュームに影響の少ないスキャナを使用して、 NAS ストレージボリュームのファイルシステム情報をすばやく簡単に見つけることができます。このスキャナは、優先度の低いジョブで ONTAP ファイルシステムをバックグラウンドでクロールし、 System Manager 9.8 以降でボリュームに移動するとすぐに使用できる情報を豊富に提供します。
 
@@ -119,7 +119,7 @@ image:ontap98fo_image12.png["エラー：グラフィックイメージがあり
 
 === アクティブな NFS クライアント
 
-ONTAP 9.7 では、どの NFS クライアントがクラスタ内の特定のボリュームにアクセスしているか、またどのデータ LIF IP アドレスが「 nfs connected-clients 」コマンドで使用されていたかを確認する方法が導入されています。このコマンドの詳細については、を参照してください https://www.netapp.com/us/media/tr-4067.pdf["TR-4067 ：『 NetApp ONTAP 8.1 Cluster-Mode 向け NFSv3 / v4 実装ガイド』"^]。このコマンドは、アップグレード、テクノロジの更新、シンプルなレポートなど、ストレージシステムに接続されているクライアントを確認する必要がある場合に役立ちます。
+ONTAP 9.7では、クラスタ内の特定のボリュームにアクセスしていたNFSクライアントや、で使用されていたデータLIFのIPアドレスを確認する方法が導入されました `nfs connected-clients` コマンドを実行しますこのコマンドの詳細については、を参照してください https://www.netapp.com/us/media/tr-4067.pdf["TR-4067 ：『 NetApp ONTAP 8.1 Cluster-Mode 向け NFSv3 / v4 実装ガイド』"^]。このコマンドは、アップグレード、テクノロジの更新、シンプルなレポートなど、ストレージシステムに接続されているクライアントを確認する必要がある場合に役立ちます。
 
 ONTAP System Manager 9.8 では、これらのクライアントを GUI で表示できるほか、リストを .csv ファイルにエクスポートできます。ホスト > NFS クライアントと進み、過去 48 時間にアクティブだった NFS クライアントのリストを表示します。
 
@@ -174,11 +174,11 @@ image:ontap98fo_image14.png["エラー：グラフィックイメージがあり
 
 ONTAP 9.6 で追加された REST API をサポートすることで、ストレージ管理者は、 CLI や GUI を操作しなくても、自動化スクリプトで ONTAP ストレージに対する業界標準の API 呼び出しを利用できます。
 
-REST API のドキュメントとサンプルは System Manager で入手できます。Web ブラウザからクラスタ管理インターフェイスに移動し、アドレスに「 d OCS/API 」を追加するだけです（ HTTPS を使用）。
+REST API のドキュメントとサンプルは System Manager で入手できます。Webブラウザからクラスタ管理インターフェイスに移動して、を追加するだけです `docs/api` をアドレスに（HTTPSを使用）
 
 例：
 
-https://cluster/docs/api`
+`https://cluster/docs/api`
 
 このページには、使用可能な REST API の対話型の用語集や、独自の REST API クエリを生成するためのメソッドが用意されています。
 
@@ -198,7 +198,7 @@ image:ontap98fo_image16.png["エラー：グラフィックイメージがあり
 * クラスタ * ファームウェア履歴 * クラスタライセンス–容量プール * クラスタライセンス–ライセンスマネージャー * ノードメトリック * ソフトウェア・イメージ・アップロード * MetroCluster * メディエーター * 診断 * 管理 / 作成 * DR グループ * インターコネクト * ノード * 操作 * ネットワーク * イーサネットポートメトリック * スイッチポート情報 * スイッチ 情報 * FC インターフェイスメトリック * BGP ピアグループ * IP インターフェイスメトリック * LIF サービスポリシー * SAN * NVMe メトリック
 | * セキュリティ * * FIPS モード有効 / 無効 * データ暗号化有効 / 無効 * Azure キーボールト * Google GCP KMS * IP Sec* ストレージ * ファイルのコピー / 移動 * NetApp FlexCache ® パッチ / 変更 * 監視対象ファイル * Snapshot ポリシー * ストレージ効率化ポリシー * ファイルとディレクトリの管理（非同期削除、 QoS 、ファイルシステム分析） * NAS * 監査ログ・リダイレクト * CIFS セッション * ファイル・アクセス・トレース / セキュリティ・トレース * 管理 * イベント・修復 * Object Store / S3 * S3 バケット管理 * S3 グループ * S3 ポリシー 
 |===
-ONTAP 9.8 での System Manager の更新の詳細については、を参照してください https://soundcloud.com/techontap_podcast/episode-266-netapp-system-manager-98["Tech OnTap ポッドキャストエピソード 266 ：『 NetApp ONTAP System Manager 9.8 』"^]。
+ONTAP 9.8 での System Manager の更新の詳細については、を参照してください https://soundcloud.com/techontap_podcast/episode-266-netapp-system-manager-98["Tech OnTap ポッドキャストエピソード 266 ： 『NetApp ONTAP System Manager 9.8』"^]。
 
 
 

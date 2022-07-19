@@ -45,8 +45,8 @@ ONTAP 9.8 では、 NFS に関する次の機能拡張が行われてい
 ONTAP 9.8 では、 SMB/CIFS に関して次のような機能拡張が行われています。
 
 * * SMB3 で暗号化された DC 接続。 * SMB DC 接続用にネットワーク経由で暗号化。
-* * SID をセット所有者の UID にマッピング（ -map-sid から -uid-on -set-owner ）。 * このオプションは、ファイルおよびフォルダに所有権を設定するときに ONTAP が Windows SID を UNIX UID にマッピングするかどうかを制御します。このオプションは、 Active Directory サーバへの負荷が増加したお客様のデータ移行エクスペリエンスを向上させるために追加されました。デフォルトは「 true 」です。（バグを修正してください https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1153207["1153207"^]. ）
-* * NFSV4_ACL が継承される場合にモードビットを設定します（ -inhere-modebits-with -nfsv4acl-enabled ） * 。NFSv4 ACL によってデフォルトの「 OWNER@ 」、「 GROUP@ 」、および「 EVERYONE@ 」 ACL が削除されたディレクトリで SMB ファイルが作成された場合、またはこれらの ACL に継承フラグが設定されていない場合に、マルチプロトコル NAS インタラクションをサポートします。デフォルトは「 false 」です。（の修正 https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/820848["バグ 820848"^]. ）
+* * SID をセット所有者の UID にマッピング（ -map-sid から -uid-on -set-owner ）。 * このオプションは、ファイルおよびフォルダに所有権を設定するときに ONTAP が Windows SID を UNIX UID にマッピングするかどうかを制御します。このオプションは、 Active Directory サーバへの負荷が増加したお客様のデータ移行エクスペリエンスを向上させるために追加されました。デフォルトはです `true`。（バグを修正してください https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1153207["1153207"^]. ）
+* * NFSV4_ACL が継承される場合にモードビットを設定します（ -inhere-modebits-with -nfsv4acl-enabled ） * 。NFSv4 ACLによってデフォルトが削除されたディレクトリ内にSMBファイルが作成される場合、NASとのマルチプロトコル対話がサポートされます `OWNER@`、 `GROUP@`および `EVERYONE@` ACL、またはこれらのACLには継承フラグが設定されていません。デフォルトはです `false`。（の修正 https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/820848["バグ 820848"^]. ）
 
 
 
