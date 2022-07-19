@@ -600,4 +600,5 @@
   <block id="2ca95da666ae6ef767cab8e7cc5bdb7b" category="paragraph">ONTAP 9.8 の新しい Trusted Platform Module (TPM) により、オンボードキーマネージャ (OKM ： Onboard Key Manager) の暗号化キーは物理 TPM によってシールされ、セキュリティと保護が強化されています。TPM への移行は無停止で実行されます。</block>
   <block id="2f8e938c8b82fff608b2a7cc62ef5bbc" category="paragraph">ONTAP 9.8 の 2 年バージョンが混在したウィンドウでは、新しいバージョンの ONTAP を実行している新しいノードをクラスタに追加し、 9.8 を実行しているノードからより新しいバージョンの ONTAP にボリュームを移動してコントローラを更新できるようになりました。また、無停止でのアグリゲート再配置アップグレード処理により、 ONTAP 9.8 を実行する必要があるシステム（ 8000 シリーズシステムなど）を、 ONTAP の新しいリリースで導入された新しいモデルにコントローラをアップグレードできます。</block>
   <block id="66c739b0fe981bce9986a4fc69525ce7" category="paragraph">ONTAP クラスタに異なるバージョンが混在する状態を推奨します。</block>
+  <block id="4bdaf2332726632f9a7f539047efbef2" category="doc">TR-48894 ：『 NetApp ONTAP 9.9.1 Feature Overview 』</block>
 </blocks>
