@@ -282,7 +282,6 @@
   <block id="0a1cccfcd4a41666314e4d98bc663bcb" category="list-text">ランサムウェア攻撃からの保護 LUN の Snapshot コピーを含む SnapLock ボリューム。 SnapLock の詳細については、を参照してください<block ref="11159f4c8dea02494c7a604be4d6264b" category="inline-link-rx"></block>。</block>
   <block id="26b1956ec2bdaa19850533717a914fa4" category="paragraph">SnapLock の詳細については、を参照してください<block ref="11159f4c8dea02494c7a604be4d6264b" category="inline-link-rx"></block>。</block>
   <block id="1f771b533947d5d021bc8913e5491108" category="summary">NetApp ONTAP は、業界をリードする主力データ管理ソフトウェアであり、オンプレミス、エッジ、クラウドのいずれの場所にあっても、データをシームレスに管理、保護できます。</block>
-  <block id="4bdaf2332726632f9a7f539047efbef2" category="doc">TR-48894 ：『 NetApp ONTAP 9.9.1 Feature Overview 』</block>
   <block id="b84294f0737ecf3f4524a06191d36d0e" category="paragraph">ネットアップ Justin Parisi</block>
   <block id="2b30a7e82febcc7a217d3308eda2fa89" category="paragraph">NetApp ONTAP では、次の機能をすべて同じプラットフォームでサポートしています。</block>
   <block id="452054cf9799b179cb23f3f83f631c22" category="list-text">NAS プロトコル（ NFS および SMB ）</block>
