@@ -29,5 +29,5 @@ ONTAP 9.8 での VMware の統合とサポートは、 FlexGroup データスト
 * のサポート https://tanzu.vmware.com/tanzu["VMware Tanzu の"^] ストレージ
 * VVol のサポートが強化され、 SAN VVol のリバランシングコマンドやストレージ機能プロファイルの機能拡張などが追加されました。最新の VMware 仮想化サポートの詳細については、次のリソースを参照してください。
 * https://soundcloud.com/techontap_podcast/episode-263-virtualization-in-ontap-fall-2020-update["Tech OnTap ポッドキャスト・エピソード 263 ： ONTAP における仮想化– 2020 年秋"^]
-* https://www.netapp.com/us/media/tr-4597.pdf["TR-4597 ：『 VMware vSphere with ONTAP 』"^]
+* https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html["TR-4597 ：『 VMware vSphere for ONTAP 』"^]
 
