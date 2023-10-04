@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head class="at-element-marker">
+  <title>簡易性の強化</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="簡易性の強化" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+	<meta property="og:description" content="このページでは、 ONTAP 9.8 の機能強化について説明します。 ONTAP System Manager の更新、 ONTAP のアップグレードと機器更改に関する改良、 REST API の機能拡張など、よりシンプルな作業に役立ちます。" />
+  <meta property="og:image" content="https://docs.netapp.com/ja-jp/ontap-whatsnew/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="このページでは、 ONTAP 9.8 の機能強化について説明します。 ONTAP System Manager の更新、 ONTAP のアップグレードと機器更改に関する改良、 REST API の機能拡張など、よりシンプルな作業に役立ちます。">
+  <meta name="keywords" content=" System Manager, Health, Alerts, Capacity Views, Network Visualization, Performance Views, File System Analytics, FSA, Active NFS Clients, upgrade"><!-- Icons -->
+  <link rel="icon" href="/ja-jp/ontap-whatsnew/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/ontap-whatsnew/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/ja-jp/ontap-whatsnew/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ja-jp/ontap-whatsnew/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/ja-jp/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/ontap-whatsnew/ontap98fo_simplicity_enhancements.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+        $(".page-nav__link").first().addClass('page-nav__link--active');
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/ontap-whatsnew/js/na-search.js'></script><script src='/ja-jp/ontap-whatsnew/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/ja-jp/ontap-whatsnew/js/custom-dropdown.js'></script>
+  <script src='/ja-jp/ontap-whatsnew/js/FileSaver.min.js'></script>
+  <script src='/ja-jp/ontap-whatsnew/js/jszip-utils.min.js'></script>
+  <script src='/ja-jp/ontap-whatsnew/js/jszip.min.js'></script><script src='/ja-jp/ontap-whatsnew/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor=""><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/ja-jp/ontap-whatsnew/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/ja/">
+                <image id="ie-header-logo" src="/ja-jp/ontap-whatsnew/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/ja/support-and-training/documentation/">ドキュメント</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/ja-jp/ontap-whatsnew/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">日本語</span>
+                    <img src="/ja-jp/ontap-whatsnew/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ja-jp/ontap-whatsnew/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/ja-jp/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-tw/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/ontap-whatsnew/ontap98fo_simplicity_enhancements.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/ja-jp/ontap-whatsnew/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">すべてのNetApp</span>
+                    <img src="/ja-jp/ontap-whatsnew/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ja-jp/ontap-whatsnew/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/ja/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">サポート</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb-ja.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">ナレッジ ベース</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">トレーニング</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/ja-jp/ontap-whatsnew/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/ja-jp/ontap-whatsnew/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">すべてのドキュメント</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/ja-jp/ontap-whatsnew/">-->
+      ONTAP What's New
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/ja-jp/ontap-whatsnew/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/ja-jp/ontap-whatsnew/search.html" 
+        data-type="widget"
+        data-placeholder="ドキュメントを検索"
+        data-no-results-found="{query}に一致する結果は見つかりませんでした"
+        data-did-you-mean="{suggestion}で検索しています。"
+        data-no-results-found-did-you-mean="{query}に一致する結果は見つかりませんでした。{suggestion}で検索しますか？"
+        data-results-found="{hitCount}件の結果が見つかりました"
+        data-error-message="エラーが発生しました。もう一度お試しください。"
+        data-error-reset="検索をリセット"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp ONTAP 9.9.1 機能の概要"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/ontap-whatsnew/index.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/ontap-whatsnew/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/ontap-whatsnew/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> NetApp ONTAP 9.9.1 機能の概要</div>-->
+         NetApp ONTAP 9.9.1 機能の概要
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="System Manager の機能拡張"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap991fo_system_manager_enhancements.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap991fo_system_manager_enhancements.html">
+        System Manager の機能拡張
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SAN の機能拡張"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap991fo_san_enhancements.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap991fo_san_enhancements.html">
+        SAN の機能拡張
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データ保護の機能拡張"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap991fo_data_protection_enhancements.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap991fo_data_protection_enhancements.html">
+        データ保護の機能拡張
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="その他の主要な追加機能"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap991fo_other_major_additions.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap991fo_other_major_additions.html">
+        その他の主要な追加機能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="テクニカルリソース"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap991fo_technical_resources.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap991fo_technical_resources.html">
+        テクニカルリソース
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp ONTAP 9.8 の機能の概要"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap98fo_netapp_ontap.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/ontap-whatsnew/ontap98fo_netapp_ontap.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/ontap-whatsnew/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/ontap-whatsnew/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> NetApp ONTAP 9.8 の機能の概要</div>-->
+         NetApp ONTAP 9.8 の機能の概要
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="簡易性の強化"
+      data-li-level="2#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap98fo_simplicity_enhancements.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap98fo_simplicity_enhancements.html">
+        簡易性の強化
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データプロトコル"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap98fo_data_protocols.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap98fo_data_protocols.html">
+        データプロトコル
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージの効率化"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap98fo_storage_efficiencies.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap98fo_storage_efficiencies.html">
+        ストレージの効率化
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データ保護"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap98fo_data_protection.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap98fo_data_protection.html">
+        データ保護
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware 仮想化"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap98fo_vmware_virtualization.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap98fo_vmware_virtualization.html">
+        VMware 仮想化
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="テクニカルリソース"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/ontap98fo_simplicity_enhancements.html" 
+      dale-entry-url="/ontap98fo_technical_resources.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/ontap-whatsnew/ontap98fo_technical_resources.html">
+        テクニカルリソース
+      </a></li></ul></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/ja-jp/ontap-whatsnew"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/ja-jp/ontap-whatsnew"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/ja-jp/ontap-whatsnew/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> 日本語は機械翻訳による参考訳です。内容に矛盾や不一致があった場合には、英語の内容が優先されます。 </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">簡易性の強化</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2022-11-04 11:17:37 +0000">11/04/2022</time>
+        
+    
+    
+        <span>共同作成者
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/ja-jp/ontap-whatsnew/images/discuss-sm.svg" alt="" class="github-icon" />変更を提案</span>
+        <img src="/ja-jp/ontap-whatsnew/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/ja-jp/ontap-whatsnew/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/ontap-whatsnew.ja-jp/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/ja-jp/ontap-whatsnew/ontap98fo_simplicity_enhancements.html&page-title=簡易性の強化" class="page-nav-contribute-link" role="button">ドキュメントの変更をリクエスト</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/ontap-whatsnew/blob/main/ontap98fo_simplicity_enhancements.adoc" class="page-nav-contribute-link" role="button">このページを編集</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >フィードバックを送るには</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/ja-jp/ontap-whatsnew/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/ja-jp/ontap-whatsnew/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/ja-jp/ontap-whatsnew/pdfs/fullsite-sidebar/TR_4894____NetApp_ONTAP_9_9_1_Feature_Overview__.pdf" >
+                    <img src="/ja-jp/ontap-whatsnew/images/pdf-icon.png" alt="" width="16" height="16"/>このドキュメント ページのPDF</a>
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/ontap-whatsnew/pdfs/sidebar/NetApp_ONTAP_9_9_1_機能の概要.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-whatsnew/images/pdf-icon.png" alt="" width="16" height="16"/>
+            NetApp ONTAP 9.9.1 機能の概要
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/ontap-whatsnew/pdfs/sidebar/NetApp_ONTAP_9_8_の機能の概要.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-whatsnew/images/pdf-icon.png" alt="" width="16" height="16"/>
+            NetApp ONTAP 9.8 の機能の概要
+          </a>
+          
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/ja-jp/ontap-whatsnew/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>PDF版ドキュメントのセット<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>このセクションでは、 ONTAP 9.8 の機能強化について説明します。これには次のものが含まれます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ONTAP System Manager が更新されます</p>
+</li>
+<li>
+<p>ONTAP のアップグレードと機器更改に関する改良</p>
+</li>
+<li>
+<p>REST API の機能拡張</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system-manager-の機能拡張">System Manager の機能拡張</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP 9.7 では、 System Manager GUI が大幅に改良され、ストレージのプロビジョニングや日常的な運用といった ONTAP の基本的な処理の管理を管理者が簡易化することを意図しています。新しい GUI には、 ONTAP 9.6 で追加された REST API も利用されます。ONTAP 9.8 では、 System Manager のクラシックビューが削除されました。</p>
+</div>
+<div class="paragraph">
+<p>インターフェイスの主な違いの 1 つは、ダッシュボードです。このダッシュボードは、 NetApp ONTAP System Manager に初めてログインしたときに表示される最初のページです。</p>
+</div>
+<div class="paragraph">
+<p>次の図は、 System Manager の従来のダッシュボードと新しいバージョンの比較を示しています。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image1.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>ここでは、大きな違いがいくつか見られます。</p>
+</div>
+<div class="sect2">
+<h3 id="健常性-アラート">健常性 / アラート</h3>
+<div class="paragraph">
+<p>Classic System Manager に初めてログインすると、左上にクラスタとノードの障害のリストが表示されます。これらはクリック可能なリンクにまとめられています。いずれかのリンクをクリックすると、 System Manager の別のページにリダイレクトされます。</p>
+</div>
+<div class="paragraph">
+<p>また、別の領域でクラスタ HA の状態を確認し、ノードがフェイルオーバーしたかどうかを確認しました。次の図では、ダッシュボードビューと、いずれかのリンクをクリックすると表示される内容を確認しています。この例では、ディスク障害が発生しています。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image2.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>他のアラートを表示するには、ダッシュボードに戻る必要があります。ダッシュボードに戻ると時間がかかり、クリック回数が増えます。System Manager の新しいビューの目的の 1 つは、このプロセスを簡易化することです。</p>
+</div>
+<div class="paragraph">
+<p>次の図は、新しい System Manager ダッシュボードを示しています。ヘルスビューとアラートビューには、 2 つの主な違いがあります。ノードの HA の状態とアラートが同じウィンドウに表示されるようになりました。メインのダッシュボードをクリックしなくても、アラートがドロップダウンボックスに表示されるようになりました。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image3.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="容量ビュー">容量ビュー</h3>
+<div class="paragraph">
+<p>容量を表示するために、クリック数も少なくなりました。従来の ONTAP システムマネージャでは、容量とストレージ容量削減比率がクラスタの概要に表示され、情報を確認するためのタブが表示されていました。新しい System Manager のビューには、ストレージ容量削減比率と容量のビューが 1 つの図に統合されています。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-whatsnew/images/note.svg" alt="メモ">
+</td>
+<td class="content">
+新しい UI は、使用済みの論理スペースと使用可能な物理スペースを利用します。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image4.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>データ保護ビューは、 Protection の下の専用ダッシュボードに移動されました。このページでは、クラスタ内のデータ保護の詳細について詳しく説明するとともに、新しい SnapMirror のビジネス継続性（ SM-BC ）を利用できる場所についても説明します。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image5.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ネットワークの可視化">ネットワークの可視化</h3>
+<div class="paragraph">
+<p>ONTAP System Manager 9.8 では、クラスタのネットワークトポロジを示す新しいネットワーク可視化ビューと、ポートがダウンしたときの赤い X が優先して、アプリケーションビューとオブジェクトビューも削除されます。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image6.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="パフォーマンスビュー">パフォーマンスビュー</h3>
+<div class="paragraph">
+<p>System Manager のパフォーマンスデータグラフには最大 1 年分のデータが保持されるようになりました。従来の System Manager のパフォーマンスデータはログイン中のみ使用できます。ONTAP System Manager 9.8 では、時間、日、週、月、年をクリックできるようになりました。また、 CSV にパフォーマンスデータをダウンロードする方法もあります。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image7.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="file-system-analytics-の略">File System Analytics の略</h3>
+<div class="paragraph">
+<p>ファイル数の多い環境でフォルダの容量、データの経過時間、およびファイル数に関する情報を探しようとすると、通常、時間がかかるコマンドやスクリプトを使用して、などのNASプロトコルでシリアル処理を実行する必要があります <code>ls</code>、 <code>du</code>、 <code>find`および `stat</code>。</p>
+</div>
+<div class="paragraph">
+<p>ONTAP System Manager 9.8 を使用すると、管理者は各ボリュームに影響の少ないスキャナを使用して、 NAS ストレージボリュームのファイルシステム情報をすばやく簡単に見つけることができます。このスキャナは、優先度の低いジョブで ONTAP ファイルシステムをバックグラウンドでクロールし、 System Manager 9.8 以降でボリュームに移動するとすぐに使用できる情報を豊富に提供します。</p>
+</div>
+<div class="paragraph">
+<p>File Systems Analytics は、スキャンするボリュームに移動するのと同じくらい簡単に有効にできます。[ ストレージ ] 、 [ ボリューム ] の順に移動し、検索を使用して目的のボリュームを検索します。ボリュームをクリックし、エクスプローラタブをクリックします。</p>
+</div>
+<div class="paragraph">
+<p>ここから、ページの右側に [ 分析を有効にする ] リンクが表示されます。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image8.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>[ 有効 ] をクリックすると、スキャナが起動します。完了までの時間は、ボリューム内のオブジェクト数およびシステムの負荷によって異なります。完了すると、ディレクトリ構造全体が System Manager のビューに表示されます。このビューにはディレクトリツリー内の移動方法があり、履歴情報、ディレクトリサイズ情報、およびファイルサイズが表示されます。</p>
+</div>
+<div class="paragraph">
+<p>次の図は、クラスタ内の Tech_ONTAP ボリュームをアーカイブとして使用して表示したものです <a href="http://techontappodcast.com/" target="_blank" rel="noopener">"ネットアップの Tech OnTap ポッドキャストのエピソード"</a>。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image9.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>フォルダをクリックすると、ページの右側にファイルリストが表示されます。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image10.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>「アクセス時間を表示」を有効にすると、ファイルが最後にアクセスされた時間を確認できます。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image11.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>ページの下部には、 1 年間にアクセスされていないデータの量、およびそのフォルダ内のディレクトリとファイルの数が表示されます。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image12.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>この機能では、ファイルサイズとディレクトリ情報を迅速に検出できるだけでなく、アグリゲートのスペースを消費するコールドデータの量を削減するうえでネットアップの FabricPool テクノロジが効果的かどうかを判断するための情報も提供されます。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="アクティブな-nfs-クライアント">アクティブな NFS クライアント</h3>
+<div class="paragraph">
+<p>ONTAP 9.7では、クラスタ内の特定のボリュームにアクセスしていたNFSクライアントや、で使用されていたデータLIFのIPアドレスを確認する方法が導入されました <code>nfs connected-clients</code> コマンドを実行しますこのコマンドの詳細については、を参照してください <a href="https://www.netapp.com/us/media/tr-4067.pdf" target="_blank" rel="noopener">"TR-4067 ：『 NetApp ONTAP 8.1 Cluster-Mode 向け NFSv3 / v4 実装ガイド』"</a>。このコマンドは、アップグレード、テクノロジの更新、シンプルなレポートなど、ストレージシステムに接続されているクライアントを確認する必要がある場合に役立ちます。</p>
+</div>
+<div class="paragraph">
+<p>ONTAP System Manager 9.8 では、これらのクライアントを GUI で表示できるほか、リストを .csv ファイルにエクスポートできます。ホスト &gt; NFS クライアントと進み、過去 48 時間にアクティブだった NFS クライアントのリストを表示します。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image13.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="system-manager-9-8-のその他の機能強化">System Manager 9.8 のその他の機能強化</h3>
+<div class="paragraph">
+<p>ONTAP 9.8 では、 System Manager の次の機能も拡張されています。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>NAS ファイルセキュリティトレース（権限をトラブルシューティングするためにファイルアクセスをトレースする）</p>
+</li>
+<li>
+<p>ログインバナーの設定（ログイン時に表示されるバナー）</p>
+</li>
+<li>
+<p>MetroCluster の設定</p>
+</li>
+<li>
+<p>ロギングレベル（クラスタで実行されるロギングのレベルを調整）</p>
+</li>
+<li>
+<p>SAML の設定</p>
+</li>
+<li>
+<p>オンボードキーマネージャ</p>
+</li>
+<li>
+<p>NVMe サブシステム</p>
+</li>
+<li>
+<p>アグリゲートの自動プロビジョニングと容量の自動拡張</p>
+</li>
+<li>
+<p>ONTAP イメージのアップロード用の REST API のサポート</p>
+</li>
+<li>
+<p>ポートの自動配置</p>
+</li>
+<li>
+<p>SnapMirror のリストアと逆再同期</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>ディスク割り当て</p>
+</li>
+<li>
+<p>FabricPool の機能拡張（階層化ポリシーとオブジェクトタギング）</p>
+</li>
+<li>
+<p>クラスタへのノードの追加</p>
+</li>
+<li>
+<p>n+2 ONTAP リリースへの直接の無停止アップグレード（ 2 年間のウィンドウ）</p>
+</li>
+<li>
+<p>プロトコルごとのパフォーマンスビュー</p>
+</li>
+<li>
+<p>S3 プロトコルの管理</p>
+</li>
+<li>
+<p>同じボリューム内に複数の LUN がある</p>
+</li>
+<li>
+<p>複数の LUN を移動</p>
+</li>
+<li>
+<p>シングルクリックファームウェアアップデート</p>
+</li>
+<li>
+<p>SnapMirror によるビジネス継続性のサポート</p>
+</li>
+<li>
+<p>ストレージ効率化ポリシー</p>
+</li>
+<li>
+<p>ボリューム管理の機能拡張</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>次の図は、 MetroCluster およびシングルクリックファームウェアのアップデートを示しています。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image14.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rest-api-の機能拡張">REST API の機能拡張</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ONTAP 9.6 で追加された REST API をサポートすることで、ストレージ管理者は、 CLI や GUI を操作しなくても、自動化スクリプトで ONTAP ストレージに対する業界標準の API 呼び出しを利用できます。</p>
+</div>
+<div class="paragraph">
+<p>REST API のドキュメントとサンプルは System Manager で入手できます。Webブラウザからクラスタ管理インターフェイスに移動して、を追加するだけです <code>docs/api</code> をアドレスに（HTTPSを使用）</p>
+</div>
+<div class="paragraph">
+<p>例：</p>
+</div>
+<div class="paragraph">
+<p><code><a href="https://cluster/docs/api" class="bare">https://cluster/docs/api</a></code></p>
+</div>
+<div class="paragraph">
+<p>このページには、使用可能な REST API の対話型の用語集や、独自の REST API クエリを生成するためのメソッドが用意されています。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image15.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>ONTAP 9.8 では、追加したバージョンの REST API にアノテーションが付けられるようになりました。これにより、スクリプトを複数のバージョンの ONTAP 間で常に作業できるようになります。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image16.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>次の表は、 ONTAP 9.8 の新しい REST API の一覧です。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>クラスタ * ファームウェア履歴 * クラスタライセンス–容量プール * クラスタライセンス–ライセンスマネージャー * ノードメトリック * ソフトウェア・イメージ・アップロード * MetroCluster * メディエーター * 診断 * 管理 / 作成 * DR グループ * インターコネクト * ノード * 操作 * ネットワーク * イーサネットポートメトリック * スイッチポート情報 * スイッチ 情報 * FC インターフェイスメトリック * BGP ピアグループ * IP インターフェイスメトリック * LIF サービスポリシー * SAN * NVMe メトリック</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* セキュリティ * * FIPS モード有効 / 無効 * データ暗号化有効 / 無効 * Azure キーボールト * Google GCP KMS * IP Sec* ストレージ * ファイルのコピー / 移動 * NetApp FlexCache ® パッチ / 変更 * 監視対象ファイル * Snapshot ポリシー * ストレージ効率化ポリシー * ファイルとディレクトリの管理（非同期削除、 QoS 、ファイルシステム分析） * NAS * 監査ログ・リダイレクト * CIFS セッション * ファイル・アクセス・トレース / セキュリティ・トレース * 管理 * イベント・修復 * Object Store / S3 * S3 バケット管理 * S3 グループ * S3 ポリシー</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>ONTAP 9.8 での System Manager の更新の詳細については、を参照してください <a href="https://soundcloud.com/techontap_podcast/episode-266-netapp-system-manager-98" target="_blank" rel="noopener">"Tech OnTap ポッドキャストエピソード 266 ： 『NetApp ONTAP System Manager 9.8』"</a>。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="アップグレードと機器更改の強化-ontap-9-8">アップグレードと機器更改の強化– ONTAP 9.8</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>従来、 ONTAP のアップグレードは、システムを停止することなく実行するには、 1 つまたは 2 つのメジャーリリース内で実行する必要がありました。ストレージ管理者が頻繁にアップグレードしないと、 ONTAP のアップグレードに時間がかかると大きな悩みやロジスティクス面での問題になります。メンテナンス時間内に何度もアップグレードおよび再起動を行いたいとお考えですか？</p>
+</div>
+<div class="paragraph">
+<p>ONTAP 9.8 では、 2 年以内の ONTAP リリースへのアップグレードがサポートされるようになりました。つまり、 9.6 から 9.8 にアップグレードする場合は、 ONTAP 9.7 に移動しなくても直接アップグレードできます。</p>
+</div>
+<div class="paragraph">
+<p>次の表に、 NetApp ONTAP のバージョンのアップグレードを示します。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">開始点（ Starting Point ）</th>
+<th class="tableblock halign-left valign-top">直接アップグレード先：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.7 、 ONTAP 9.8</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.8 、 ONTAP 9.n+2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.n+1 、 ONTAP 9.n+2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>このシンプルなアップグレードプロセスにより、ヘッドのアップグレードも合理化されます。新しいハードウェアノードの出荷時に、最新の ONTAP リリースがインストールされています。以前は、既存のクラスタで古い ONTAP リリースを実行していた場合は、既存のノードを新しいノードと同じバージョンの ONTAP にアップグレードするか、新しいノードを古い ONTAP リリースにダウングレードする必要がありました。さらに複雑な作業として、新しいハードウェアをダウングレードできなかった場合、既存のクラスタをアップグレードするためにメンテナンス期間を余儀なくされました。</p>
+</div>
+<div class="paragraph">
+<p>ONTAP 9.8 の 2 年バージョンが混在したウィンドウでは、新しいバージョンの ONTAP を実行している新しいノードをクラスタに追加し、 9.8 を実行しているノードからより新しいバージョンの ONTAP にボリュームを移動してコントローラを更新できるようになりました。また、無停止でのアグリゲート再配置アップグレード処理により、 ONTAP 9.8 を実行する必要があるシステム（ 8000 シリーズシステムなど）を、 ONTAP の新しいリリースで導入された新しいモデルにコントローラをアップグレードできます。</p>
+</div>
+<div class="paragraph">
+<p>ONTAP クラスタに異なるバージョンが混在する状態を推奨します。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image17.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p>また、クラスタのアップグレードもこのプロセスの対象となり、 HA ペア全体をクラスタからスワップアウトできます。ONTAP 9.8 の 2 年間の改訂期間と無停止でのボリューム移動により、これが可能になりました。</p>
+</div>
+<div class="paragraph">
+<p>基本的な手順は次のとおりです。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>2 年間のウィンドウで、 ONTAP バージョンを使用して新しいシステムを既存のクラスタに接続します。</p>
+</li>
+<li>
+<p>無停止ボリューム移動を使用してノードを退避します。</p>
+</li>
+<li>
+<p>クラスタから古いノードを分離</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/ontap98fo_image18.png" alt="エラー：グラフィックイメージがありません"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="ontap98fo_data_protocols.html">"次の例：データプロトコル"</a></p>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/ja-jp/ontap-whatsnew/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/ja-jp/ontap-whatsnew/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">このページ</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">ご利用規約</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">プライバシー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">クッキー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">クッキーの設定</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">このページに関するフィードバックをお寄せください</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ja-jp/ontap-whatsnew/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ja-jp/ontap-whatsnew/js/prism.js'></script>
+      <script type="text/javascript" src='/ja-jp/ontap-whatsnew/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ja-jp/ontap-whatsnew/js/ie-tabbed-blocks.js'></script>
+    <script src='/ja-jp/ontap-whatsnew/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
